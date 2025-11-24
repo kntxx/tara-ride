@@ -3,6 +3,7 @@ import { Toaster } from "react-hot-toast";
 import { AuthProvider } from "./context/AuthContext";
 import { NotificationProvider } from "./context/NotificationContext";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import PrivateRoute from "./components/PrivateRoute";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -18,7 +19,7 @@ function App() {
     <AuthProvider>
       <NotificationProvider>
         <Router>
-          <div className="min-h-screen bg-gray-50">
+          <div className="min-h-screen bg-gray-50 flex flex-col">
             <Navbar />
             <Toaster position="top-right" />
             <Routes>
@@ -59,6 +60,7 @@ function App() {
                 }
               />
             </Routes>
+            <Footer />
           </div>
         </Router>
       </NotificationProvider>

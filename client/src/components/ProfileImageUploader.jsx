@@ -4,9 +4,10 @@ import { uploadProfilePicture } from "../services/userService";
 
 const ProfileImageUploader = ({ userId, currentImage, onUploadSuccess }) => {
   const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const baseUrl = apiUrl.replace('/api', ''); // Remove /api suffix for file paths
   const fullCurrentImage =
     currentImage && currentImage.startsWith("/")
-      ? `${apiUrl}${currentImage}`
+      ? `${baseUrl}${currentImage}`
       : currentImage;
   const [preview, setPreview] = useState(fullCurrentImage);
   const [isDragging, setIsDragging] = useState(false);

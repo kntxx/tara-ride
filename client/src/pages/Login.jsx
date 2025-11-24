@@ -67,9 +67,9 @@ const Login = () => {
             </div>
           </motion.div>
           <h1 className="text-4xl font-bold text-gradient mb-3">
-            Welcome Back
+            Welcome Back Tito!
           </h1>
-          <p className="text-gray-600">Login to join mountain bike rides</p>
+          <p className="text-gray-600">Ride nata mga Tito!</p>
         </div>
 
         {/* Form Card */}

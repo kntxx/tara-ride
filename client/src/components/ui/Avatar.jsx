@@ -39,7 +39,8 @@ const Avatar = ({
 
   // Prepend API URL if src is a relative path
   const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
-  const fullSrc = src && src.startsWith("/") ? `${apiUrl}${src}` : src;
+  const baseUrl = apiUrl.replace('/api', ''); // Remove /api suffix for file paths
+  const fullSrc = src && src.startsWith("/") ? `${baseUrl}${src}` : src;
 
   return (
     <motion.div

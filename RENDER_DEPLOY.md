@@ -1,12 +1,14 @@
 # Render Deployment Guide for Tito Ride
 
 ## Prerequisites
+
 - GitHub repository with your code
 - Render account (https://render.com)
 
 ## Deployment Steps
 
 ### 1. Push to GitHub
+
 ```bash
 git add .
 git commit -m "Add Render deployment configuration"
@@ -27,11 +29,13 @@ git push
 
 The frontend service will be created automatically from render.yaml.
 Set environment variable:
-   - `VITE_API_URL`: Your backend URL (e.g., `https://tito-ride-api.onrender.com/api`)
+
+- `VITE_API_URL`: Your backend URL (e.g., `https://tito-ride-api.onrender.com/api`)
 
 ### 4. Update Socket.IO CORS
 
 After getting your frontend URL, update `server/server.js`:
+
 ```javascript
 const io = new Server(server, {
   cors: {
@@ -44,6 +48,7 @@ const io = new Server(server, {
 ### 5. Update Environment Variables
 
 **Backend (tito-ride-api):**
+
 ```
 NODE_ENV=production
 PORT=5000
@@ -53,6 +58,7 @@ CLIENT_URL=https://your-frontend-url.onrender.com
 ```
 
 **Frontend (tito-ride-client):**
+
 ```
 VITE_API_URL=https://tito-ride-api.onrender.com/api
 ```
@@ -74,15 +80,18 @@ VITE_API_URL=https://tito-ride-api.onrender.com/api
 ## Troubleshooting
 
 **Backend won't start:**
+
 - Check environment variables are set correctly
 - Check MongoDB connection string is correct
 - Check build logs for errors
 
 **Frontend can't connect to backend:**
+
 - Verify `VITE_API_URL` is set correctly
 - Check CORS settings in backend
 - Ensure backend is running
 
 **Images not loading:**
+
 - Use full URLs in production
 - Consider migrating to Cloudinary for persistent storage

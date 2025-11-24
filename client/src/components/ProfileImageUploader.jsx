@@ -100,9 +100,12 @@ const ProfileImageUploader = ({ userId, currentImage, onUploadSuccess }) => {
       const response = await uploadProfilePicture(userId, compressedFile);
 
       if (response.success) {
-        const fullImageUrl = `http://localhost:5000${response.imageUrl}`;
+        const baseUrl = apiUrl.replace('/api', '');
+        const fullImageUrl = response.imageUrl.startsWith('http') 
+          ? response.imageUrl 
+          : `${baseUrl}${response.imageUrl}`;
         setPreview(fullImageUrl);
-        onUploadSuccess(fullImageUrl);
+        onUploadSuccess(response.imageUrl);
       }
     } catch (err) {
       console.error("Upload error:", err);

@@ -1,14 +1,14 @@
-import '@testing-library/jest-dom'
-import { expect, afterEach } from 'vitest'
-import { cleanup } from '@testing-library/react'
+import "@testing-library/jest-dom";
+import { expect, afterEach } from "vitest";
+import { cleanup } from "@testing-library/react";
 
 // Cleanup after each test
 afterEach(() => {
-  cleanup()
-})
+  cleanup();
+});
 
 // Mock window.matchMedia
-Object.defineProperty(window, 'matchMedia', {
+Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: (query) => ({
     matches: false,
@@ -20,4 +20,4 @@ Object.defineProperty(window, 'matchMedia', {
     removeEventListener: () => {},
     dispatchEvent: () => {},
   }),
-})
+});

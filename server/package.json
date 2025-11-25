@@ -32,7 +32,12 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "coveragePathIgnorePatterns": ["/node_modules/"],
-    "testMatch": ["**/__tests__/**/*.js", "**/?(*.)+(spec|test).js"]
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.js",
+      "**/?(*.)+(spec|test).js"
+    ]
   }
 }
